@@ -47,12 +47,14 @@ html {
     scroll-behavior: smooth;
 }
 
+html,
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 16px;
     overflow-x: hidden;
+    width: 100%;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -333,6 +335,7 @@ ul {
     background: linear-gradient(135deg, #a78bfa, #7c3aed, #a78bfa);
     background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 3s ease-in-out infinite;
 }
@@ -1778,6 +1781,18 @@ ul {
     line-height: 1.7;
 }
 
+.closing-note {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(139, 92, 246, 0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: italic;
+    color: var(--text-primary) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
 .signature {
     display: flex;
     align-items: center;
@@ -2097,7 +2112,13 @@ footer {
 
 @media (max-width: 768px) {
     .section-padding {
-        padding: 4rem 1rem;
+        padding: 4rem 1.25rem;
+    }
+
+    .content-wrapper {
+        padding: 0 1.25rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .main-title {
@@ -2143,6 +2164,7 @@ footer {
 
     .diagnosis-top-row {
         grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .stats-comparison {
@@ -2218,7 +2240,16 @@ footer {
     }
 
     .nav-container {
-        padding: 0 1rem;
+        padding: 0 1.25rem;
+    }
+
+    /* Fix potential overflow items */
+    .stat-card,
+    .glass-card,
+    .plan-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }
 
